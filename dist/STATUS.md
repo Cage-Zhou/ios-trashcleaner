@@ -9,7 +9,7 @@
 | 京东 | `com.360buy.jdmobile` | unverified | - | 脚本×1 | api.m.jd.com |
 | 金十数据 | `com.jin10.app` | unverified | - | 重写×1 | jad-api.jin10.com |
 | 美团 | `com.meituan.imeituan` | unverified | - | 重写×2 | img.meituan.net, s3plus.meituan.net, flowplus.meituan.net |
-| 南通州 | `未知（App Store id1494938780）` | unverified | - | 重写×1 | publish.cm.jstv.com |
+| 南通州 | `未知（App Store id1494938780）` | unverified | - | 重写×1 脚本×1 | publish.cm.jstv.com |
 | 网易云音乐 | `com.netease.cloudmusic` | unverified | - | 重写×1 | interface*.music.163.com |
 | 起点读书 | `com.qidian.QDReader` | unverified | - | 重写×1 | magev6.if.qidian.com |
 | 夸克 | `com.quark.browser` | unverified | - | 规则×1 |  |

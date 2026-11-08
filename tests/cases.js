@@ -74,6 +74,23 @@ module.exports = [
     },
   },
   {
+    script: 'nantongzhou-splash',
+    title: 'empties startPhotoList, zeroes countdown, keeps config',
+    url: 'https://publish.cm.jstv.com/appSetting?appType=1&AppID=x&TT=1&Sign=x',
+    body: JSON.stringify({ code: 200, data: {
+      version: 1.97, loadingTime: 3, isHalfStartPhoto: 0, popupAd: null, cornerAd: null,
+      startPhotoList: [{ url: 'https://image.cm.jstv.com/a.jpg', globalId: 32379196, startTime: 0, endTime: 0 }],
+      domainList: [{ name: 'apiauth', url: 'https://api-auth.cm.jstv.com/' }],
+    } }),
+    check: (r) => {
+      const d = json(r).data;
+      assert.strictEqual(JSON.stringify(d.startPhotoList), '[]');
+      assert.strictEqual(d.loadingTime, 0);
+      assert.strictEqual(d.version, 1.97);
+      assert.strictEqual(d.domainList[0].name, 'apiauth');
+    },
+  },
+  {
     script: 'jd-splash',
     title: 'clears images and daily show count',
     url: 'https://api.m.jd.com/client.action?functionId=start',

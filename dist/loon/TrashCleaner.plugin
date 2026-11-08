@@ -48,7 +48,7 @@ DOMAIN,adimg.uve.weibo.com,REJECT
 ^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/ reject-img
 # 美团 · 玲珑开屏素材（图片/视频）
 ^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|png|mp4) reject-img
-# 南通州 · 荔枝云平台广告接口（开屏），每次启动请求多次
+# 南通州 · 荔枝云平台广告位接口（站内广告位）
 ^https:\/\/publish\.cm\.jstv\.com\/ad\? reject-dict
 # 网易云音乐 · eapi 响应体加密，无法改写，只能整体拒绝广告接口
 ^https?:\/\/interface\d?\.music\.163\.com\/eapi\/ad\/ reject-dict
@@ -74,6 +74,8 @@ http-response ^https:\/\/m5(-zb)?\.amap\.com\/ws\/valueadded\/alimama\/splash_sc
 http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(brand\/list|event\/list2|list|show) script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/bilibili-splash.js, requires-body=true, timeout=10, tag=tc-bilibili-1
 # 京东 · 启动配置接口：清空开屏图片，日展示次数置 0
 http-response ^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=start\b script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/jd-splash.js, requires-body=true, timeout=10, tag=tc-jd-1
+# 南通州 · 开屏图在 data.startPhotoList（每次随机选一张，显示 data.loadingTime 秒）：清空列表、倒计时归零
+http-response ^https:\/\/publish\.cm\.jstv\.com\/appSetting\? script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/nantongzhou-splash.js, requires-body=true, timeout=10, tag=tc-nantongzhou-1
 # 微博 · 预加载开屏广告；响应为 JSON 后接 "OK"，脚本会保留后缀
 http-response ^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/weibo-splash.js, requires-body=true, timeout=10, tag=tc-weibo-1
 # 微博 · 拉取缓存开屏广告
