@@ -24,14 +24,14 @@ hostname = m5.amap.com, m5-zb.amap.com, pan.baidu.com, app.bilibili.com, api.m.j
 # 知乎 · 开屏广告下发接口（含实时竞价版本）
 ^https:\/\/api\.zhihu\.com\/commercial_api\/(real_time_)?launch_v2 url reject-dict
 # 高德地图 · 阿里妈妈开屏：清空素材并把投放时间改到 2090 年
-^https:\/\/m5(-zb)?\.amap\.com\/ws\/valueadded\/alimama\/splash_screen url script-response-body https://cdn.jsdelivr.net/gh/<用户名>/ios-trashcleaner@main/dist/scripts/amap-splash.js
+^https:\/\/m5(-zb)?\.amap\.com\/ws\/valueadded\/alimama\/splash_screen url script-response-body https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/amap-splash.js
 # 哔哩哔哩 · 清空开屏素材列表，并把拉取间隔拉到一年
-^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(brand\/list|event\/list2|list|show) url script-response-body https://cdn.jsdelivr.net/gh/<用户名>/ios-trashcleaner@main/dist/scripts/bilibili-splash.js
+^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(brand\/list|event\/list2|list|show) url script-response-body https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/bilibili-splash.js
 # 京东 · 启动配置接口：清空开屏图片，日展示次数置 0
-^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=start\b url script-response-body https://cdn.jsdelivr.net/gh/<用户名>/ios-trashcleaner@main/dist/scripts/jd-splash.js
+^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=start\b url script-response-body https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/jd-splash.js
 # 微博 · 预加载开屏广告；响应为 JSON 后接 "OK"，脚本会保留后缀
-^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php url script-response-body https://cdn.jsdelivr.net/gh/<用户名>/ios-trashcleaner@main/dist/scripts/weibo-splash.js
+^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php url script-response-body https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/weibo-splash.js
 # 微博 · 拉取缓存开屏广告
-^https:\/\/wbapp\.uve\.weibo\.com\/wbapplua\/wbpullad\.lua url script-response-body https://cdn.jsdelivr.net/gh/<用户名>/ios-trashcleaner@main/dist/scripts/weibo-splash.js
+^https:\/\/wbapp\.uve\.weibo\.com\/wbapplua\/wbpullad\.lua url script-response-body https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/weibo-splash.js
 # 小红书 · 把所有开屏素材的投放时间改到 2090 年，已缓存的素材也不会展示
-^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config url script-response-body https://cdn.jsdelivr.net/gh/<用户名>/ios-trashcleaner@main/dist/scripts/xiaohongshu-splash.js
+^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config url script-response-body https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/xiaohongshu-splash.js

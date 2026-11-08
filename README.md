@@ -36,7 +36,7 @@
 脚本需要一个可公网访问的地址。推到 GitHub 后修改 [config.json](config.json) 的 `scriptBaseUrl`，或构建时传入：
 
 ```bash
-node tools/build.js --base-url https://raw.githubusercontent.com/<你的用户名>/ios-trashcleaner/main/dist/scripts
+node tools/build.js --base-url https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts
 ```
 
 ### 2. 安装模块

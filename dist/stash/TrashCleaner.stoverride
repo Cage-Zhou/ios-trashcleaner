@@ -82,17 +82,17 @@ http:
 
 script-providers:
   'amap-splash':
-    url: 'https://cdn.jsdelivr.net/gh/<用户名>/ios-trashcleaner@main/dist/scripts/amap-splash.js'
+    url: 'https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/amap-splash.js'
     interval: 86400
   'bilibili-splash':
-    url: 'https://cdn.jsdelivr.net/gh/<用户名>/ios-trashcleaner@main/dist/scripts/bilibili-splash.js'
+    url: 'https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/bilibili-splash.js'
     interval: 86400
   'jd-splash':
-    url: 'https://cdn.jsdelivr.net/gh/<用户名>/ios-trashcleaner@main/dist/scripts/jd-splash.js'
+    url: 'https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/jd-splash.js'
     interval: 86400
   'weibo-splash':
-    url: 'https://cdn.jsdelivr.net/gh/<用户名>/ios-trashcleaner@main/dist/scripts/weibo-splash.js'
+    url: 'https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/weibo-splash.js'
     interval: 86400
   'xiaohongshu-splash':
-    url: 'https://cdn.jsdelivr.net/gh/<用户名>/ios-trashcleaner@main/dist/scripts/xiaohongshu-splash.js'
+    url: 'https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/xiaohongshu-splash.js'
     interval: 86400
