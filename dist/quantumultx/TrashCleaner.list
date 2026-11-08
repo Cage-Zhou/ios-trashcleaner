@@ -5,6 +5,14 @@
 
 # 通用广告 SDK · 腾讯广点通/优量汇（mi/v/v2mi/c3/v3 等，含 QUIC）
 HOST-SUFFIX,gdt.qq.com,REJECT
+# 通用广告 SDK · 腾讯优量汇 新版 SDK 广告请求
+HOST,sdk.e.qq.com,REJECT
+# 通用广告 SDK · 腾讯优量汇 新版 SDK（QUIC/UDP）
+HOST,sdkquic.e.qq.com,REJECT
+# 通用广告 SDK · 腾讯广告素材 CDN（adsmind.ugdtimg.com 即开屏图片）
+HOST-SUFFIX,ugdtimg.com,REJECT
+# 通用广告 SDK · 腾讯广告素材 CDN（旧域名）
+HOST-SUFFIX,gdtimg.com,REJECT
 # 通用广告 SDK · 字节穿山甲 广告请求
 HOST-SUFFIX,pangolin-sdk-toutiao.com,REJECT
 # 通用广告 SDK · 字节穿山甲 广告请求（备用域）

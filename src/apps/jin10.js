@@ -9,9 +9,9 @@ module.exports = {
   rewrites: [
     {
       pattern: String.raw`^https:\/\/jad-api\.jin10\.com\/ad`,
-      action: 'reject',
-      example: 'https://jad-api.jin10.com/ad/splash',
-      note: '金十自有广告接口（来源：blackmatrix7/ios_rule_script 去广告规则集）',
+      action: 'reject-dict',
+      example: 'https://jad-api.jin10.com/ad2/opening?display=opening',
+      note: '金十自有广告接口（来源：blackmatrix7/ios_rule_script）；返回空 JSON 而非断连，避免 App 回退到本地缓存的开屏',
     },
   ],
   scripts: [],

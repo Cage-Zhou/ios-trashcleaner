@@ -26,5 +26,6 @@ module.exports = {
   notes: [
     '2026-11-08 抓包（7.137.0）确认：app_ads/splash_preload|splash_show|splash_bid|splash_statistics 与 erebor 均已命中拒绝',
     '剩余开屏来自第三方 SDK（广点通、穿山甲、京东 DSP），由「通用广告 SDK」规则处理',
+    '2026-11-08 第二次抓包：拦掉 gdt.qq.com 后改走 sdk.e.qq.com / sdkquic.e.qq.com，素材来自 adsmind.ugdtimg.com',
   ],
 };

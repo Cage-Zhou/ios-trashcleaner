@@ -7,6 +7,14 @@
 [Rule]
 # 通用广告 SDK · 腾讯广点通/优量汇（mi/v/v2mi/c3/v3 等，含 QUIC）
 DOMAIN-SUFFIX,gdt.qq.com,REJECT
+# 通用广告 SDK · 腾讯优量汇 新版 SDK 广告请求
+DOMAIN,sdk.e.qq.com,REJECT
+# 通用广告 SDK · 腾讯优量汇 新版 SDK（QUIC/UDP）
+DOMAIN,sdkquic.e.qq.com,REJECT
+# 通用广告 SDK · 腾讯广告素材 CDN（adsmind.ugdtimg.com 即开屏图片）
+DOMAIN-SUFFIX,ugdtimg.com,REJECT
+# 通用广告 SDK · 腾讯广告素材 CDN（旧域名）
+DOMAIN-SUFFIX,gdtimg.com,REJECT
 # 通用广告 SDK · 字节穿山甲 广告请求
 DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT
 # 通用广告 SDK · 字节穿山甲 广告请求（备用域）
@@ -24,10 +32,6 @@ DOMAIN-SUFFIX,huichuan.sm.cn,REJECT
 # 微博 · 广告素材 CDN
 DOMAIN,adimg.uve.weibo.com,REJECT
 
-[URL Rewrite]
-# 金十数据 · 金十自有广告接口（来源：blackmatrix7/ios_rule_script 去广告规则集）
-^https:\/\/jad-api\.jin10\.com\/ad - reject
-
 [Map Local]
 # 百度网盘 · 广告交易接口（含开屏）
 ^https:\/\/pan\.baidu\.com\/rest\/2\.0\/pcs\/adx data-type=text data="{}" status-code=200 header="Content-Type:application/json"
@@ -39,6 +43,8 @@ DOMAIN,adimg.uve.weibo.com,REJECT
 ^https:\/\/api\.douban\.com\/v2\/app_ads\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 # 虎扑 · 广告接口（含开屏）；把握较低，需抓包确认
 ^https:\/\/(games\.mobileapi|goblin)\.hupu\.com\/.+\/interfaceAd data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+# 金十数据 · 金十自有广告接口（来源：blackmatrix7/ios_rule_script）；返回空 JSON 而非断连，避免 App 回退到本地缓存的开屏
+^https:\/\/jad-api\.jin10\.com\/ad data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 # 美团 · 广告联盟 / 展位 / 麦达斯广告素材
 ^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/ data-type=tiny-gif status-code=200
 # 美团 · 玲珑开屏素材（图片/视频）
