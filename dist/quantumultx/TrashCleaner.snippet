@@ -3,7 +3,7 @@
 #!author=ios-trashcleaner
 #!version=0.1.0
 
-hostname = m5.amap.com, m5-zb.amap.com, pan.baidu.com, app.bilibili.com, frodo.douban.com, api.douban.com, games.mobileapi.hupu.com, goblin.hupu.com, api.m.jd.com, jad-api.jin10.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, *.cm.jstv.com, interface*.music.163.com, magev6.if.qidian.com, client.qunar.com, guide-acs.m.taobao.com, acs.m.taobao.com, bootrealtime.uve.weibo.com, sdkapp.uve.weibo.com, wbapp.uve.weibo.com, acs.m.goofish.com, g-acs.m.goofish.com, edith.xiaohongshu.com, api.zhihu.com
+hostname = m5.amap.com, m5-zb.amap.com, pan.baidu.com, app.bilibili.com, frodo.douban.com, api.douban.com, games.mobileapi.hupu.com, goblin.hupu.com, api.m.jd.com, jad-api.jin10.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, publish.cm.jstv.com, interface*.music.163.com, magev6.if.qidian.com, client.qunar.com, guide-acs.m.taobao.com, acs.m.taobao.com, bootrealtime.uve.weibo.com, sdkapp.uve.weibo.com, wbapp.uve.weibo.com, acs.m.goofish.com, g-acs.m.goofish.com, edith.xiaohongshu.com, api.zhihu.com
 
 # 百度网盘 · 广告交易接口（含开屏）
 ^https:\/\/pan\.baidu\.com\/rest\/2\.0\/pcs\/adx url reject-dict
@@ -21,6 +21,8 @@ hostname = m5.amap.com, m5-zb.amap.com, pan.baidu.com, app.bilibili.com, frodo.d
 ^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/ url reject-img
 # 美团 · 玲珑开屏素材（图片/视频）
 ^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|png|mp4) url reject-img
+# 南通州 · 荔枝云平台广告接口（开屏），每次启动请求多次
+^https:\/\/publish\.cm\.jstv\.com\/ad\? url reject-dict
 # 网易云音乐 · eapi 响应体加密，无法改写，只能整体拒绝广告接口
 ^https?:\/\/interface\d?\.music\.163\.com\/eapi\/ad\/ url reject-dict
 # 起点读书 · 开屏配置 / iOS 广告位
