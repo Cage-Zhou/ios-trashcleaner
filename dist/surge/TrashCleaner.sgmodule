@@ -1,10 +1,12 @@
 #!name=TrashCleaner 开屏广告净化
-#!desc=去除国行 App 开屏广告（淘宝/京东/美团/高德/微博/知乎/B站/小红书/网易云/百度网盘）
+#!desc=去除国行 App 开屏广告（淘宝/京东/美团/高德/微博/知乎/B站/小红书/网易云/百度网盘/豆瓣）
 #!author=ios-trashcleaner
 #!version=0.1.0
 #!category=TrashCleaner
 
 [Rule]
+# 豆瓣 · 豆瓣自有广告投放服务
+DOMAIN,erebor.douban.com,REJECT
 # 微博 · 广告素材 CDN
 DOMAIN,adimg.uve.weibo.com,REJECT
 
@@ -13,6 +15,10 @@ DOMAIN,adimg.uve.weibo.com,REJECT
 ^https:\/\/pan\.baidu\.com\/rest\/2\.0\/pcs\/adx data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 # 百度网盘 · 活动弹窗入口
 ^https:\/\/pan\.baidu\.com\/act\/api\/activityentry data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+# 豆瓣 · App 开屏配置
+^https:\/\/frodo\.douban\.com\/api\/v2\/splash data-type=text data="{}" status-code=200 header="Content-Type:application/json"
+# 豆瓣 · 旧版开屏广告接口
+^https:\/\/api\.douban\.com\/v2\/app_ads\/ data-type=text data="{}" status-code=200 header="Content-Type:application/json"
 # 美团 · 广告联盟 / 展位 / 麦达斯广告素材
 ^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/ data-type=tiny-gif status-code=200
 # 美团 · 玲珑开屏素材（图片/视频）
@@ -30,17 +36,17 @@ DOMAIN,adimg.uve.weibo.com,REJECT
 
 [Script]
 # 高德地图 · 阿里妈妈开屏：清空素材并把投放时间改到 2090 年
-tc-amap-1 = type=http-response,pattern="^https:\/\/m5(-zb)?\.amap\.com\/ws\/valueadded\/alimama\/splash_screen",requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/amap-splash.js
+tc-amap-1 = type=http-response,pattern=^https:\/\/m5(-zb)?\.amap\.com\/ws\/valueadded\/alimama\/splash_screen,requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/amap-splash.js
 # 哔哩哔哩 · 清空开屏素材列表，并把拉取间隔拉到一年
-tc-bilibili-1 = type=http-response,pattern="^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(brand\/list|event\/list2|list|show)",requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/bilibili-splash.js
+tc-bilibili-1 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(brand\/list|event\/list2|list|show),requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/bilibili-splash.js
 # 京东 · 启动配置接口：清空开屏图片，日展示次数置 0
-tc-jd-1 = type=http-response,pattern="^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=start\b",requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/jd-splash.js
+tc-jd-1 = type=http-response,pattern=^https:\/\/api\.m\.jd\.com\/client\.action\?functionId=start\b,requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/jd-splash.js
 # 微博 · 预加载开屏广告；响应为 JSON 后接 "OK"，脚本会保留后缀
-tc-weibo-1 = type=http-response,pattern="^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php",requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/weibo-splash.js
+tc-weibo-1 = type=http-response,pattern=^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php,requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/weibo-splash.js
 # 微博 · 拉取缓存开屏广告
-tc-weibo-2 = type=http-response,pattern="^https:\/\/wbapp\.uve\.weibo\.com\/wbapplua\/wbpullad\.lua",requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/weibo-splash.js
+tc-weibo-2 = type=http-response,pattern=^https:\/\/wbapp\.uve\.weibo\.com\/wbapplua\/wbpullad\.lua,requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/weibo-splash.js
 # 小红书 · 把所有开屏素材的投放时间改到 2090 年，已缓存的素材也不会展示
-tc-xiaohongshu-1 = type=http-response,pattern="^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config",requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/xiaohongshu-splash.js
+tc-xiaohongshu-1 = type=http-response,pattern=^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config,requires-body=1,max-size=0,timeout=10,script-path=https://cdn.jsdelivr.net/gh/Cage-Zhou/ios-trashcleaner@main/dist/scripts/xiaohongshu-splash.js
 
 [MITM]
-hostname = %APPEND% m5.amap.com, m5-zb.amap.com, pan.baidu.com, app.bilibili.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, interface*.music.163.com, guide-acs.m.taobao.com, acs.m.taobao.com, bootrealtime.uve.weibo.com, sdkapp.uve.weibo.com, wbapp.uve.weibo.com, edith.xiaohongshu.com, api.zhihu.com
+hostname = %APPEND% m5.amap.com, m5-zb.amap.com, pan.baidu.com, app.bilibili.com, frodo.douban.com, api.douban.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, interface*.music.163.com, guide-acs.m.taobao.com, acs.m.taobao.com, bootrealtime.uve.weibo.com, sdkapp.uve.weibo.com, wbapp.uve.weibo.com, edith.xiaohongshu.com, api.zhihu.com

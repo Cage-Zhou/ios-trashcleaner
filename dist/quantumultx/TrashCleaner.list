@@ -1,7 +1,9 @@
 #!name=TrashCleaner 开屏广告净化
-#!desc=去除国行 App 开屏广告（淘宝/京东/美团/高德/微博/知乎/B站/小红书/网易云/百度网盘）
+#!desc=去除国行 App 开屏广告（淘宝/京东/美团/高德/微博/知乎/B站/小红书/网易云/百度网盘/豆瓣）
 #!author=ios-trashcleaner
 #!version=0.1.0
 
+# 豆瓣 · 豆瓣自有广告投放服务
+HOST,erebor.douban.com,REJECT
 # 微博 · 广告素材 CDN
 HOST,adimg.uve.weibo.com,REJECT

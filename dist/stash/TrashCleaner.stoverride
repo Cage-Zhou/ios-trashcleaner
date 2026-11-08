@@ -1,7 +1,9 @@
 name: 'TrashCleaner 开屏广告净化'
-desc: '去除国行 App 开屏广告（淘宝/京东/美团/高德/微博/知乎/B站/小红书/网易云/百度网盘）'
+desc: '去除国行 App 开屏广告（淘宝/京东/美团/高德/微博/知乎/B站/小红书/网易云/百度网盘/豆瓣）'
 
 rules:
+  # 豆瓣 · 豆瓣自有广告投放服务
+  - 'DOMAIN,erebor.douban.com,REJECT'
   # 微博 · 广告素材 CDN
   - 'DOMAIN,adimg.uve.weibo.com,REJECT'
 
@@ -11,6 +13,8 @@ http:
     - 'm5-zb.amap.com'
     - 'pan.baidu.com'
     - 'app.bilibili.com'
+    - 'frodo.douban.com'
+    - 'api.douban.com'
     - 'api.m.jd.com'
     - 'img.meituan.net'
     - 's3plus.meituan.net'
@@ -28,6 +32,10 @@ http:
     - '^https:\/\/pan\.baidu\.com\/rest\/2\.0\/pcs\/adx - reject-dict'
     # 百度网盘 · 活动弹窗入口
     - '^https:\/\/pan\.baidu\.com\/act\/api\/activityentry - reject-dict'
+    # 豆瓣 · App 开屏配置
+    - '^https:\/\/frodo\.douban\.com\/api\/v2\/splash - reject-dict'
+    # 豆瓣 · 旧版开屏广告接口
+    - '^https:\/\/api\.douban\.com\/v2\/app_ads\/ - reject-dict'
     # 美团 · 广告联盟 / 展位 / 麦达斯广告素材
     - '^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/ - reject-img'
     # 美团 · 玲珑开屏素材（图片/视频）

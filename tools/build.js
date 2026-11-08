@@ -91,6 +91,8 @@ function header(cfg, style) {
   return lines.map((l) => '#!' + l).join('\n');
 }
 
+// Quote a script pattern only when it contains a comma (the argument separator).
+const qp = (p) => (p.includes(',') ? `"${p}"` : p);
 const comment = (x) => `# ${x.app.name}${x.note ? ' · ' + x.note : ''}`;
 const scriptUrl = (cfg, s) => `${cfg.scriptBaseUrl}/${s.script}.js`;
 
@@ -127,7 +129,7 @@ function buildSurge(cfg, c) {
   if (c.scripts.length) {
     out.push('[Script]');
     for (const s of c.scripts) {
-      out.push(comment(s), `${s.tag} = type=http-response,pattern="${s.pattern}",requires-body=1,max-size=0,timeout=${cfg.scriptTimeout},script-path=${scriptUrl(cfg, s)}`);
+      out.push(comment(s), `${s.tag} = type=http-response,pattern=${qp(s.pattern)},requires-body=1,max-size=0,timeout=${cfg.scriptTimeout},script-path=${scriptUrl(cfg, s)}`);
     }
     out.push('');
   }
@@ -151,7 +153,7 @@ function buildShadowrocket(cfg, c) {
   if (c.scripts.length) {
     out.push('[Script]');
     for (const s of c.scripts) {
-      out.push(comment(s), `${s.tag} = type=http-response,pattern="${s.pattern}",requires-body=1,max-size=0,timeout=${cfg.scriptTimeout},script-path=${scriptUrl(cfg, s)}`);
+      out.push(comment(s), `${s.tag} = type=http-response,pattern=${qp(s.pattern)},requires-body=1,max-size=0,timeout=${cfg.scriptTimeout},script-path=${scriptUrl(cfg, s)}`);
     }
     out.push('');
   }
