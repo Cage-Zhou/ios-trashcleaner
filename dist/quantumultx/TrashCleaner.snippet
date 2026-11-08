@@ -1,9 +1,9 @@
 #!name=TrashCleaner 开屏广告净化
-#!desc=去除国行 App 开屏广告（16 个 App，清单见 dist/STATUS.md）
+#!desc=去除国行 App 开屏广告（17 个 App，清单见 dist/STATUS.md）
 #!author=ios-trashcleaner
 #!version=0.1.0
 
-hostname = m5.amap.com, m5-zb.amap.com, pan.baidu.com, app.bilibili.com, frodo.douban.com, api.douban.com, games.mobileapi.hupu.com, goblin.hupu.com, api.m.jd.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, interface*.music.163.com, magev6.if.qidian.com, client.qunar.com, guide-acs.m.taobao.com, acs.m.taobao.com, bootrealtime.uve.weibo.com, sdkapp.uve.weibo.com, wbapp.uve.weibo.com, acs.m.goofish.com, g-acs.m.goofish.com, edith.xiaohongshu.com, api.zhihu.com
+hostname = m5.amap.com, m5-zb.amap.com, pan.baidu.com, app.bilibili.com, frodo.douban.com, api.douban.com, games.mobileapi.hupu.com, goblin.hupu.com, api.m.jd.com, jad-api.jin10.com, img.meituan.net, s3plus.meituan.net, flowplus.meituan.net, interface*.music.163.com, magev6.if.qidian.com, client.qunar.com, guide-acs.m.taobao.com, acs.m.taobao.com, bootrealtime.uve.weibo.com, sdkapp.uve.weibo.com, wbapp.uve.weibo.com, acs.m.goofish.com, g-acs.m.goofish.com, edith.xiaohongshu.com, api.zhihu.com
 
 # 百度网盘 · 广告交易接口（含开屏）
 ^https:\/\/pan\.baidu\.com\/rest\/2\.0\/pcs\/adx url reject-dict
@@ -15,6 +15,8 @@ hostname = m5.amap.com, m5-zb.amap.com, pan.baidu.com, app.bilibili.com, frodo.d
 ^https:\/\/api\.douban\.com\/v2\/app_ads\/ url reject-dict
 # 虎扑 · 广告接口（含开屏）；把握较低，需抓包确认
 ^https:\/\/(games\.mobileapi|goblin)\.hupu\.com\/.+\/interfaceAd url reject-dict
+# 金十数据 · 金十自有广告接口（来源：blackmatrix7/ios_rule_script 去广告规则集）
+^https:\/\/jad-api\.jin10\.com\/ad url reject
 # 美团 · 广告联盟 / 展位 / 麦达斯广告素材
 ^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/ url reject-img
 # 美团 · 玲珑开屏素材（图片/视频）

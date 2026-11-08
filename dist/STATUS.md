@@ -6,6 +6,7 @@
 | 豆瓣 | `com.douban.frodo` | unverified | - | 规则×1 重写×2 | frodo.douban.com, api.douban.com |
 | 虎扑 | `com.hupu.games` | unverified | - | 重写×1 | games.mobileapi.hupu.com, goblin.hupu.com |
 | 京东 | `com.360buy.jdmobile` | unverified | - | 脚本×1 | api.m.jd.com |
+| 金十数据 | `com.jin10.app` | unverified | - | 重写×1 | jad-api.jin10.com |
 | 美团 | `com.meituan.imeituan` | unverified | - | 重写×2 | img.meituan.net, s3plus.meituan.net, flowplus.meituan.net |
 | 网易云音乐 | `com.netease.cloudmusic` | unverified | - | 重写×1 | interface*.music.163.com |
 | 起点读书 | `com.qidian.QDReader` | unverified | - | 重写×1 | magev6.if.qidian.com |

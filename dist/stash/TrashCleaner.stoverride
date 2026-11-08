@@ -1,5 +1,5 @@
 name: 'TrashCleaner 开屏广告净化'
-desc: '去除国行 App 开屏广告（16 个 App，清单见 dist/STATUS.md）'
+desc: '去除国行 App 开屏广告（17 个 App，清单见 dist/STATUS.md）'
 
 rules:
   # 豆瓣 · 豆瓣自有广告投放服务
@@ -20,6 +20,7 @@ http:
     - 'games.mobileapi.hupu.com'
     - 'goblin.hupu.com'
     - 'api.m.jd.com'
+    - 'jad-api.jin10.com'
     - 'img.meituan.net'
     - 's3plus.meituan.net'
     - 'flowplus.meituan.net'
@@ -46,6 +47,8 @@ http:
     - '^https:\/\/api\.douban\.com\/v2\/app_ads\/ - reject-dict'
     # 虎扑 · 广告接口（含开屏）；把握较低，需抓包确认
     - '^https:\/\/(games\.mobileapi|goblin)\.hupu\.com\/.+\/interfaceAd - reject-dict'
+    # 金十数据 · 金十自有广告接口（来源：blackmatrix7/ios_rule_script 去广告规则集）
+    - '^https:\/\/jad-api\.jin10\.com\/ad - reject'
     # 美团 · 广告联盟 / 展位 / 麦达斯广告素材
     - '^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/ - reject-img'
     # 美团 · 玲珑开屏素材（图片/视频）
