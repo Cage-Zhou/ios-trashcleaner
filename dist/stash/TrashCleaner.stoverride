@@ -1,9 +1,11 @@
 name: 'TrashCleaner 开屏广告净化'
-desc: '去除国行 App 开屏广告（淘宝/京东/美团/高德/微博/知乎/B站/小红书/网易云/百度网盘/豆瓣）'
+desc: '去除国行 App 开屏广告（16 个 App，清单见 dist/STATUS.md）'
 
 rules:
   # 豆瓣 · 豆瓣自有广告投放服务
   - 'DOMAIN,erebor.douban.com,REJECT'
+  # 夸克 · UC/夸克「汇川」广告平台
+  - 'DOMAIN-SUFFIX,huichuan.sm.cn,REJECT'
   # 微博 · 广告素材 CDN
   - 'DOMAIN,adimg.uve.weibo.com,REJECT'
 
@@ -15,16 +17,22 @@ http:
     - 'app.bilibili.com'
     - 'frodo.douban.com'
     - 'api.douban.com'
+    - 'games.mobileapi.hupu.com'
+    - 'goblin.hupu.com'
     - 'api.m.jd.com'
     - 'img.meituan.net'
     - 's3plus.meituan.net'
     - 'flowplus.meituan.net'
     - 'interface*.music.163.com'
+    - 'magev6.if.qidian.com'
+    - 'client.qunar.com'
     - 'guide-acs.m.taobao.com'
     - 'acs.m.taobao.com'
     - 'bootrealtime.uve.weibo.com'
     - 'sdkapp.uve.weibo.com'
     - 'wbapp.uve.weibo.com'
+    - 'acs.m.goofish.com'
+    - 'g-acs.m.goofish.com'
     - 'edith.xiaohongshu.com'
     - 'api.zhihu.com'
   url-rewrite:
@@ -36,18 +44,26 @@ http:
     - '^https:\/\/frodo\.douban\.com\/api\/v2\/splash - reject-dict'
     # 豆瓣 · 旧版开屏广告接口
     - '^https:\/\/api\.douban\.com\/v2\/app_ads\/ - reject-dict'
+    # 虎扑 · 广告接口（含开屏）；把握较低，需抓包确认
+    - '^https:\/\/(games\.mobileapi|goblin)\.hupu\.com\/.+\/interfaceAd - reject-dict'
     # 美团 · 广告联盟 / 展位 / 麦达斯广告素材
     - '^https?:\/\/img\.meituan\.net\/(adunion|display|midas)\/ - reject-img'
     # 美团 · 玲珑开屏素材（图片/视频）
     - '^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|png|mp4) - reject-img'
     # 网易云音乐 · eapi 响应体加密，无法改写，只能整体拒绝广告接口
     - '^https?:\/\/interface\d?\.music\.163\.com\/eapi\/ad\/ - reject-dict'
+    # 起点读书 · 开屏配置 / iOS 广告位
+    - '^https:\/\/magev6\.if\.qidian\.com\/argus\/api\/v\d\/client\/(getsplashscreen|iosad) - reject-dict'
+    # 去哪儿旅行 · 开屏广告（pitcher 网关按 qrt 参数区分业务）
+    - '^https:\/\/client\.qunar\.com\/pitcher-proxy\?qrt=p_splashAd - reject-dict'
     # 淘宝 · 首页开屏配置 / 开屏视频
     - '^https:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(wireless\.home\.splash\.awesome\.get|cloudvideo\.video\.query) - reject-dict'
     # 淘宝 · 通用广告位
     - '^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv - reject-dict'
     # 微博 · 启动时实时开屏广告
     - '^https:\/\/bootrealtime\.uve\.weibo\.com\/v[23]\/ad\/realtime - reject-dict'
+    # 闲鱼 · 名字里带 splash 的闲鱼 mtop 接口
+    - '^https:\/\/(acs\.m\.taobao|(g-)?acs\.m\.goofish)\.com\/gw\/mtop\.(taobao\.)?idle\.[\w.]*splash - reject-dict'
     # 知乎 · 开屏广告下发接口（含实时竞价版本）
     - '^https:\/\/api\.zhihu\.com\/commercial_api\/(real_time_)?launch_v2 - reject-dict'
   script:
