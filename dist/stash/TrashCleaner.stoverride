@@ -1,7 +1,19 @@
 name: 'TrashCleaner 开屏广告净化'
-desc: '去除国行 App 开屏广告（17 个 App，清单见 dist/STATUS.md）'
+desc: '去除国行 App 开屏广告（17 个 App + 通用广告 SDK，清单见 dist/STATUS.md）'
 
 rules:
+  # 通用广告 SDK · 腾讯广点通/优量汇（mi/v/v2mi/c3/v3 等，含 QUIC）
+  - 'DOMAIN-SUFFIX,gdt.qq.com,REJECT'
+  # 通用广告 SDK · 字节穿山甲 广告请求
+  - 'DOMAIN-SUFFIX,pangolin-sdk-toutiao.com,REJECT'
+  # 通用广告 SDK · 字节穿山甲 广告请求（备用域）
+  - 'DOMAIN-SUFFIX,pangolin-sdk-toutiao1.com,REJECT'
+  # 通用广告 SDK · 字节穿山甲 日志上报
+  - 'DOMAIN-SUFFIX,pangolin-sdk-toutiao-b.com,REJECT'
+  # 通用广告 SDK · 字节穿山甲 素材 CDN
+  - 'DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT'
+  # 通用广告 SDK · 京东 DSP 广告
+  - 'DOMAIN,dsp-x.jd.com,REJECT'
   # 豆瓣 · 豆瓣自有广告投放服务
   - 'DOMAIN,erebor.douban.com,REJECT'
   # 夸克 · UC/夸克「汇川」广告平台

@@ -23,5 +23,8 @@ module.exports = {
     },
   ],
   scripts: [],
-  notes: ['豆瓣部分开屏走第三方广告 SDK（优量汇/穿山甲），此时上述规则拦不到，需要抓包后补 SDK 域名'],
+  notes: [
+    '2026-11-08 抓包（7.137.0）确认：app_ads/splash_preload|splash_show|splash_bid|splash_statistics 与 erebor 均已命中拒绝',
+    '剩余开屏来自第三方 SDK（广点通、穿山甲、京东 DSP），由「通用广告 SDK」规则处理',
+  ],
 };

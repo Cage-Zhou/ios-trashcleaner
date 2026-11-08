@@ -1,5 +1,6 @@
 | App | Bundle ID | 状态 | 验证版本 | 方式 | MITM |
 |---|---|---|---|---|---|
+| 通用广告 SDK | `-` | unverified | - | 规则×6 |  |
 | 高德地图 | `com.autonavi.amap` | unverified | - | 脚本×1 | m5.amap.com, m5-zb.amap.com |
 | 百度网盘 | `com.baidu.netdisk` | unverified | - | 重写×2 | pan.baidu.com |
 | 哔哩哔哩 | `tv.danmaku.bilianime` | unverified | - | 脚本×1 | app.bilibili.com |
