@@ -44,6 +44,7 @@ http:
     - 'img.meituan.net'
     - 's3plus.meituan.net'
     - 'flowplus.meituan.net'
+    - '*.cm.jstv.com'
     - 'interface*.music.163.com'
     - 'magev6.if.qidian.com'
     - 'client.qunar.com'
