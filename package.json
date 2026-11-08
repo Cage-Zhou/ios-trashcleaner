@@ -1,0 +1,13 @@
+{
+  "name": "ios-trashcleaner",
+  "version": "0.1.0",
+  "private": true,
+  "description": "去除国行 iOS App 开屏广告的代理工具模块（Surge / Loon / Quantumult X / Shadowrocket / Stash）",
+  "scripts": {
+    "build": "node tools/build.js",
+    "test": "node tests/run.js"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
